@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'nokogiri', '~>1.5.0'
 gem 'fog'
 gem "figaro"
+gem "mini_magick"
 
 
 # Use jquery as the JavaScript library
