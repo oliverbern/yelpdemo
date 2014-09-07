@@ -79,4 +79,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Required for devise gem in production - remember to change 'localhost'
+  config.action_mailer.default_url_options = { host: 'http://yelpdemo0709.herokuapp.com/', port: 3000 }
 end
