@@ -1,0 +1,32 @@
+<table class="table table-hover tabel-condensed">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <% if user_signed_in? && current_user.admin? %>
+      <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= link_to image_tag(restaurant.image.url), restaurant %></td>
+        <td><%= link_to "#{restaurant.name.upcase}", restaurant, class: "btn btn-link" %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.phone %></td>
+        <td><%= restaurant.website %></td>
+        <% if user_signed_in? && current_user.admin? %>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
