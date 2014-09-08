@@ -26,7 +26,17 @@
     </p>
 
     <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
-  </div>
+  
+  <br>
+  <br>
+  <iframe
+  width="230"
+  height="230"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD7G6YxocSHwPw1ncMydAy2n2ho3z3LKgo
+    &q=<%= @restaurant.address.parameterize %>&zoom=15">
+</iframe>
+</div>
 
   <div class="col-md-9">
     <% if @reviews.blank? %>
